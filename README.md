@@ -32,3 +32,18 @@ Alice is a central figure in the diamond industry. She calculates that the avera
 . Connect with metamask
 
 ```
+
+<h3> Flow </h3>
+
+```
+1. Refungible Diamonds provide liquidity and create global market to diamonds.
+2. Lapidarist comes to platform and submits valid proofs and details of his precious stones which is then minted as NFT.
+3. The Validator that is Refungible Diamonds approves or disapproves the authencity if that diamond.
+4. If approved the diamond the lapidarist( nft creator ) is asked to lock some collateral into the contracts. This collaterals are used to back the NFT and the 
+   native token thats DMG is minted.
+5. DMG is universally approved and people knows its authencity as it only mints if there are collateral backing it.
+6. This creates an global market for the diamond.
+7. Whenver the lapidarist has to sell his diamond as per terms and aggreement he has to repay the DMG token to withdraw his/her NFT.
+8. Lapidarist repays the DMG token this triggers the repay function on the contract. 
+9. Once DMG tokens are repaided the Validator safetransfers the NFT back.
+```
