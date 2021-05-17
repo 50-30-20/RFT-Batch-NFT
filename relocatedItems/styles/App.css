@@ -1,0 +1,119 @@
+/* Styles go here */
+
+.header{
+text-align: center;
+padding : 80px 0;
+color:#FFD369;
+font-size: 72px;
+font-weight: 900;
+}
+.selection{
+    border-width: 1px;
+    display: flex;
+    height: max-content;
+    justify-content:space-evenly;
+    align-items:center;
+    }
+.select-hero{
+border: 5px;
+border-radius: 10px;
+box-shadow: 5px 5px 10px;
+justify-content: center;
+align-items: center;
+height: 300px;
+width: 300px;
+text-align: center;
+background-image: linear-gradient(to right, red , yellow);
+}
+
+.select-hero:hover{
+box-shadow: inset 30px 24px 34px rgba(209, 217, 230, 0.34), inset 30px 28px 38px rgba(209, 217, 230, 0.4), inset 30px 35px 45px rgba(209, 217, 230, 0.48), inset 30px 54px 61px rgba(209, 217, 230, 0.67), inset -20px -63px 65px rgba(255, 255, 255, 0.75), inset -20px -36.8341px 42.6719px rgba(255, 255, 255, 0.539141), inset -20px -31.3638px 35.026px rgba(255, 255, 255, 0.44708), inset -20px -28.4185px 30.1667px rgba(255, 255, 255, 0.375);
+}
+
+.select-story{
+    border: 5px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    text-align: center;
+    box-shadow: -14px -14px 20px rgba(229, 229, 229, 0.07), 20px 20px 25px rgba(0, 0, 0, 0.15);
+    }
+.select-story:hover{
+       box-shadow: inset -14px -14px 20px rgba(229, 229, 229, 0.07), inset 20px 20px 25px rgba(0, 0, 0, 0.15);
+    }
+    .dashboard-card-image{
+        height: 150px;
+        width:150px;
+    }
+    @media only screen and (max-width: 1000px) {
+        .selection{
+            
+        }
+            .dashboard-card-image{
+        height: 120px;
+        width:120px;
+    }
+    .select-story{
+        height: 250px;
+        width:250px;
+    }
+        .header{
+        font-size: 48px;
+    }
+}
+
+    @media only screen and (max-width: 890px) {
+        .selection{
+            flex-direction: column;
+        }
+    .dashboard-card-image{
+        height: 100px;
+        width:100px;
+    }
+    .select-story{
+        height: 250px;
+        width:250px;
+        margin: 0 0 30px 0;
+    }
+    .header{
+        font-size: 32px;
+    }
+}
+    
+
+h4 { 
+    color: #087ec7;
+    font-size: 18px; 
+    padding-bottom: 10px; 
+}
+
+.container{
+    border: 5px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    text-align: left;
+    align-content: center;
+    padding-bottom: 40px;
+    padding-top: 10px;
+}
+
+label p {
+    font-weight: 800;
+}
+
+.outline {
+    color: black;
+}
+
+.outline:hover{
+    color: white;
+}
+
+

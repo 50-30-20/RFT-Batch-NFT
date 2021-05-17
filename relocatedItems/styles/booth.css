@@ -1,0 +1,73 @@
+.navbar {
+  height: 50px;
+  padding : 0 10px;
+}
+.header-booth{
+text-align: center;
+padding : 0 0 80px 0;
+color:#FFD369;
+font-size: 72px;
+font-weight: 900;
+}
+
+.navbox {
+  border-style: solid;
+  height: 30px;
+  width: 80px;
+  border-width: 1px;
+  border-color: black;
+  font-size: 20px;
+  color: black;
+}
+
+.navbox:hover {
+  background-color: #6ebae9;
+  color: white;
+  border-color: black;
+}
+
+h4 {
+  color: #087ec7;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.flex-container > div {
+  margin: 20px;
+  padding: 20px;
+  font-size: 30px;
+  width: 300px;
+}
+.action-cards{
+    background-color: #222831;
+    border-radius: 14px;
+    box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.15), -8px -8px 12px rgba(228, 228, 228, 0.09);
+}
+.action-cards:hover{
+    box-shadow: inset 8px 8px 4px rgba(0, 0, 0, 0.15), inset -8px -8px 12px rgba(228, 228, 228, 0.09);
+}
+.card-owner-like{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.upvote{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    margin-top: 16px;
+}
+.imageBox {
+  padding-left: 60px;
+}
+
+p {
+  padding-top: 9px;
+  font-size: 14px;
+}

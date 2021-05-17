@@ -1,0 +1,89 @@
+/* Styles go here */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
+body{
+    font-family: 'Chakra Petch', sans-serif;
+    background-color: #222831;
+}
+
+.main {
+    margin-top: 120px;
+}
+
+.text {
+    /* margin-top: 50% !important; */
+    display: flex !important;
+    vertical-align: center;
+    margin: 20px;
+    margin-left: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.text-header {
+    color:#EEEEEE;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.text-header1 {
+    font-size: 24px;
+    color: #fff;
+    margin-left: 150px;
+}
+
+.main {
+    /* border-color: blanchedalmond;
+    border-style: double; */
+    padding-left: 340px;
+    margin-left: 150px;
+}
+
+.form-control {
+    margin-left: 10px;
+    height: 30px;
+    font-size: 25;
+    width: 400px;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+.text-header1 {
+    margin-left: 10px;
+}
+
+.form-el{
+    /* border-color: blanchedalmond; */
+    /* border-style: double; */
+    padding: 20px;
+    align-items: center;
+}
+
+.button-file {
+    margin-left: 10px;
+    width: 500px;
+}
+
+.Button {
+    width: 150px;
+    height: 55px;
+    margin-top: 20px;
+    margin-left: 120px;
+    background-color: transparent;
+    border-color: whitesmoke;
+    border-style: solid;
+    border-width: 1px;
+    color: whitesmoke;
+    font-size: large;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.Button:hover {
+    background:blue;
+}
+
+.logo {
+    margin-left:125px;
+    max-width: 100px;
+    height: 100px;
+}

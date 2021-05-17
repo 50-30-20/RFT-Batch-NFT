@@ -1,0 +1,214 @@
+/* Styles go here */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
+body{
+    font-family: 'Chakra Petch', sans-serif;
+    background-color: #222831;
+}
+body::-webkit-scrollbar {
+    width: 0.4em;
+  }
+   
+  body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    background-color: #222732;
+    outline: 1px solid #222732;
+  }
+
+.screen {
+    height: calc(100vh-50px);
+    width: 100vw;
+    position: relative;
+}
+
+.main {
+    margin-top: 120px;
+}
+
+.nft-sec {
+    background: #222831;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.dungeon {
+    /* background-color: #e2e1e1; */
+    /* width: 80vw; */
+    height: 60%;
+    /* margin-top: 80px; */
+    position: relative;
+    border-radius: 40px;
+    background-color: #343a40;
+    box-shadow: inset -20px -20px 30px rgba(0, 0, 0, 0.25), inset 20px 20px 30px rgba(0, 0, 0, 0.25);
+
+}
+
+
+.mint-btn {
+    vertical-align: center !important;
+    align-content: center !important;
+    background-color: #000000;
+    height: 50px;
+    width: 200px;
+    border-radius: 8px;
+    margin: 16px 0;;
+
+}
+
+.mint-btn:hover{
+    opacity: 0.4;
+}
+
+.text {
+    /* margin-top: 50% !important; */
+    display: flex !important;
+    vertical-align: center;
+    margin: 20px;
+    margin-left: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.trophy-section-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.trophy-cabinet {
+    padding: 10px;
+    margin-top: 20px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    width: 80%;;
+}
+.trophy-info{
+    font-size: 24px;
+}
+.text-header {
+    color:#EEEEEE;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.text-header1 {
+    font-size: 14px;
+    color:#FFD369;
+}
+
+
+.select-story {
+    padding: 15px;
+
+}
+
+.name-artist {
+    color: #8A4FFF;
+}
+
+.gift {   
+padding: 10px 50px;
+    margin: 5px;
+    height: fit-content;
+    font-size: 8px;
+    color: white;
+    background: #343A40;
+box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.15), -12px -11px 15px rgba(49, 40, 40, 0.09);
+border-radius: 24px;
+    
+}
+.gift:hover {
+    box-shadow:
+    inset 0 0 50px #fff,      /* inner white */
+    inset 20px 0 80px #f0f,   /* inner left magenta short */
+    inset -20px 0 80px #0ff,  /* inner right cyan short */
+    inset 20px 0 300px #f0f,  /* inner left magenta broad */
+    inset -20px 0 300px #0ff, /* inner right cyan broad */
+    0 0 50px #fff,            /* outer white */
+    -10px 0 80px #f0f,        /* outer left magenta */
+    10px 0 80px #0ff;         /* outer right cyan */
+}
+
+/* box-shadow:
+    0 0 60px 30px #fff,  
+    0 0 100px 60px #f0f, 
+    0 0 140px 90px #0ff;  */
+
+.trophy-title{
+    padding: 20px;
+    font-weight: 900;
+    font-size: 48px;
+
+    background-image: linear-gradient(45deg, rgba(22, 188, 243, 1), rgba(22, 188, 243, 0.42));
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+}
+.values {
+    color: gold;
+}
+
+.chainlink {
+    height: 20px;
+    width: 20px;
+}
+
+.white {
+    color: white;
+}
+
+.hovero {
+    text-decoration: none;
+}
+.hovero:hover {
+    color: white;
+}
+
+/* .drawer {
+    border-left: 4px solid rgb(245, 245, 245);
+    border-right: 4px solid rgb(126, 125, 125);
+    border-top: 4px solid rgb(61, 61, 61);
+    border-bottom: 4px solid rgba(180, 180, 180, 0.432);
+    height: 200px;
+    width: 200px;
+    align-content: center !important;
+    padding: 5px;
+    margin: 2.5px;
+    background-color: #8a8a88;
+    flex-grow: 1;
+    width: 33%;
+
+} */
+/* .vertical-scrollable {
+    height: auto;
+}
+.vertical-scrollable > .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+} */
+/* .vertical-scrollable > .row > * {
+    border-left: 5px solid rgb(245, 245, 245);
+    border-right: 5px solid rgb(126, 125, 125);
+    border-top: 5px solid rgb(61, 61, 61);
+    border-bottom: 5px solid rgba(180, 180, 180, 0.432);
+    /* flex-grow: 1; */
+    /* flex: 1 1 30%;
+    margin: 10px;
+    width: 33%;
+    height: 250px;
+    width: 100px;
+
+/* } */ 
+/* chest */
+/* https://media.giphy.com/media/lXiRm5H49zYmHr3i0/giphy.gif */
