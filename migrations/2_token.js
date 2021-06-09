@@ -1,6 +1,7 @@
 const TokenFactory = artifacts.require("TokenFactory");
 const RFTToken = artifacts.require("RFTToken");
 const USDTToken = artifacts.require("USDTToken");
+const Batch = artifacts.require("Batch");
 
 const BigNumber = require('bignumber.js');
 
@@ -18,5 +19,7 @@ module.exports = async function (deployer, network, accounts) {
     await deployer.deploy(TokenFactory, rftToken.address, usdtToken.address);
     let tokenFactory = await TokenFactory.deployed()
 
+    await deployer.deploy(Batch)
+    let batchContract = await Batch.deployed()
     //await rftToken.transfer(tokenFactory.address, new BigNumber(100000e18));
 }

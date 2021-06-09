@@ -36,7 +36,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "verify-deployment": "truffle run verify RFTToken USDTToken TokenFactory --network",
+    "verify-deployment": "truffle run verify RFTToken USDTToken TokenFactory Batch --network",
     "migrate:rinkeby": "rm -rf build/ && truffle migrate --network rinkeby --reset"
   },
   "eslintConfig": {
