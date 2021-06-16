@@ -37,17 +37,17 @@ function Navbar() {
                     <ul className={click ? 'nav-menu active': 'nav-menu' }>
                         <li className='nav-item'>
                             <Link to='/Liquidity' className='nav-links' onClick={closeMobileMenu}>
-                                Add Liquidity
+                                Add Collections
                             </Link>
                         </li>
                         <li className='nav-item'>
                             <Link to='/Redeem' className='nav-links' onClick={closeMobileMenu}>
-                                Reedem NFT
+                                Withdraw NFT
                             </Link>
                         </li>
                         <li className='nav-item'>
                             <Link to='/Approve' className='nav-links' onClick={closeMobileMenu}>
-                                Approve NFT
+                                Collections
                             </Link>
                         </li>
                         <li className='nav-item'>

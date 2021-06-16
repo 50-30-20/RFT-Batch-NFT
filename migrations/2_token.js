@@ -19,7 +19,7 @@ module.exports = async function (deployer, network, accounts) {
     await deployer.deploy(TokenFactory, rftToken.address, usdtToken.address);
     let tokenFactory = await TokenFactory.deployed()
 
-    await deployer.deploy(Batch)
+    await deployer.deploy(Batch, rftToken.address, usdtToken.address)
     let batchContract = await Batch.deployed()
     //await rftToken.transfer(tokenFactory.address, new BigNumber(100000e18));
 }

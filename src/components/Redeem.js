@@ -1,6 +1,6 @@
 import Web3 from 'web3';
 import React, { Component } from 'react';
-import './Liquidity.css';
+import './Batches.css';
 import TokenFactory from '../abis/TokenFactory.json'
 import RFTToken from '../abis/RFTToken.json'
 
