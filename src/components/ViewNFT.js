@@ -92,22 +92,21 @@ class ViewNFT extends Component {
         console.log(this.props.location.state.key);
         return (
             <div className="container">
-                {/* <center style={{ marginTop: '15vh' }}>
+                <center style={{ marginTop: '15vh' }}>
                     {
                         !this.state.allCollections.length
-                            ? <p> No collections </p>
+                            ? <p> No NFTS </p>
                             : (
                                 <Table responsive>
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Size</th>
-                                            <th>Total prize</th>
-                                            <th>NFT count</th>
-                                            <th>Sold count</th>
-                                            <th>Collateral amount</th>
-                                            <th>Action</th>
+                                            <th>Collection ID</th>
+                                            <th>Prize</th>
+                                            <th>Token Addr</th>
+                                            <th>Token Id</th>
+                                            <th>Collateral Locked</th>
+                                            <th>Collateral Returned</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -116,13 +115,12 @@ class ViewNFT extends Component {
                                                 return (
                                                     <tr key={key + 1}>
                                                         <td>{key + 1}</td>
-                                                        <td>{item.name}</td>
-                                                        <td>{item.size}</td>
-                                                        <td>{item.nftsCount}</td>
-                                                        <td>{item.totalPrize}</td>
-                                                        <td>{item.soldCount}</td>
-                                                        <td>{item.acceptCollateral ? item.collateralAmount : 0}</td>
-                                                        <td>View nfts</td>
+                                                        <td>{item.collectionId}</td>
+                                                        <td>{item.price}</td>
+                                                        <td>{item.tokenAddress}</td>
+                                                        <td>{item.tokenId}</td>
+                                                        <td>{item.collateralLocked ? 'Yes' : 'No'}</td>
+                                                        <td>{item.collateralReturned ? 'Yes' : 'No'}</td>
                                                     </tr>
                                                 )
                                             })
@@ -131,7 +129,7 @@ class ViewNFT extends Component {
                                 </Table>
                             )
                     }
-                </center> */}
+                </center>
             </div>
         );
     }
