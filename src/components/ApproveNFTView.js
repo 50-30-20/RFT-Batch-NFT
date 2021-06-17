@@ -2,6 +2,8 @@ import Web3 from 'web3';
 import React, { Component } from 'react';
 import './Collectable.css';
 import TokenFactory from '../abis/TokenFactory.json'
+import Batch from '../abis/Batch.json'
+import { Table } from 'react-bootstrap';
 
 class ApproveNFTView extends Component {
     constructor(props) {
@@ -9,7 +11,9 @@ class ApproveNFTView extends Component {
 
         this.state = {
             tokenId: null,
-            authenticate: null
+            authenticate: null,
+            batchContract: null,
+            allCollections: []
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,9 +46,20 @@ class ApproveNFTView extends Component {
         if (networkData) {
             const tokenFactory = new web3.eth.Contract(TokenFactory.abi, networkData.address)
             this.setState({ tokenFactory })
+            const batchContract = new web3.eth.Contract(Batch.abi, Batch.networks[networkId].address)
+            this.setState({ batchContract})
             this.setState({ loading: false })
 
-        } else {
+            const collectionCounter = await this.state.batchContract.methods.collectionCounter().call();
+            const arr = []
+            if (collectionCounter)
+                for (let i = 1; i <= collectionCounter; i++) {
+                    arr.push(await this.state.batchContract.methods.allCollections(i).call());
+                }
+            
+            this.setState({ allCollections: arr});
+            console.log(this.state.allCollections[0]);
+        } else {    
             window.alert("TokenFactory contract is not deployed to detected network")
         }
     }
@@ -68,33 +83,46 @@ class ApproveNFTView extends Component {
     render() {
         return (
             <div className="main">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="container">
-
-                        <div className="form-el">
-                            <label className='text-header1'>NFT ID</label> <br />
-                            <input
-                                type="text"
-                                className="form-control"
-                                value={this.state.tokenId}
-                                onChange={event => this.setState({ tokenId: event.target.value })}
-                            />
-                        </div>
-
-                        <div className="form-el">
-                            <label className='text-header1'>Legit</label> <br />
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="send authencity boolean"
-                                value={this.state.authenticate}
-                                onChange={event => this.setState({ authenticate: event.target.value })}
-                            />
-                        </div>
-
-                        <button type="submit" className="Button">Create</button>
-                    </div>
-                </form>
+                <div className="container">
+                    {
+                        !this.state.allCollections.length
+                            ? <p> No collections </p>
+                            : (
+                                <Table responsive>
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Total prize</th>
+                                            <th>NFT count</th>
+                                            <th>Sold count</th>
+                                            <th>Collateral amount</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            this.state.allCollections.map((item, key) => {
+                                                return (
+                                                    <tr key={key + 1}>
+                                                        <td>{key + 1}</td>
+                                                        <td>{item.name}</td>
+                                                        <td>{item.size}</td>
+                                                        <td>{item.nftsCount}</td>
+                                                        <td>{item.totalPrize}</td>
+                                                        <td>{item.soldCount}</td>
+                                                        <td>{item.acceptCollateral ? item.collateralAmount : 0}</td>
+                                                        <td>View nfts</td>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
+                                    </tbody>
+                                </Table>
+                            )
+                    }
+                </div>
             </div>
         );
     }

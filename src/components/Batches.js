@@ -20,7 +20,8 @@ class Liquidity extends Component {
            nftTokenAddress: null,
            nftTokenId: null,
            collectionId: null,
-           price: null
+           price: null,
+           nft: null
         }
 
         this.handleSubmit1 = this.handleSubmit1.bind(this);
@@ -63,8 +64,7 @@ class Liquidity extends Component {
 
             const batchContract = new web3.eth.Contract(Batch.abi, BatchNetworkData.address)
             this.setState({ batchContract })
-            this.setState({ loading: false })
-
+            this.setState({ loading: false });
         } else {
             window.alert("TokenFactory contract is not deployed to detected network")
         }
@@ -107,17 +107,26 @@ class Liquidity extends Component {
         //         })
         // })
         
-        
+        const add = async () => {
+            await this.state.batchContract.methods.addNFTToCollection(
+                this.state.nftTokenAddress,
+                this.state.nftTokenId,
+                this.state.collectionId,
+                this.state.price
+            )
+                .send({ from: this.state.account })
+                .once('receipt', (receipt) => {
+                    this.setState({ loading: false })
+                });
+        }
+
         //await this.state.usdtToken.methods.approve(this.state.tokenFactory.address, amount)
-        await this.state.batchContract.methods.addNFTToCollection(
-            this.state.nftTokenAddress,
-            this.state.nftTokenId,
-            this.state.collectionId,
-            this.state.price
-        )
-            .send({ from: this.state.account })
+        const nft = new web3.eth.Contract(IERC721.abi, this.state.nftTokenAddress);
+        await nft.methods.approve(this.state.batchContract._address, this.state.nftTokenId)
+            .send({from: this.state.account})
             .once('receipt', (receipt) => {
-                this.setState({ loading: false })
+                console.log('Confirm', receipt);
+                add();
             })
     }
     
