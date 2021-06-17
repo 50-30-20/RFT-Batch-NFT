@@ -4,9 +4,8 @@ import './Collectable.css';
 import TokenFactory from '../abis/TokenFactory.json'
 import Batch from '../abis/Batch.json'
 import { Table } from 'react-bootstrap';
-import {withRouter} from 'react-router-dom';
 
-class ApproveNFTView extends Component {
+class ViewNFT extends Component {
     constructor(props) {
         super(props)
 
@@ -48,24 +47,33 @@ class ApproveNFTView extends Component {
             const tokenFactory = new web3.eth.Contract(TokenFactory.abi, networkData.address)
             this.setState({ tokenFactory })
             const batchContract = new web3.eth.Contract(Batch.abi, Batch.networks[networkId].address)
-            this.setState({ batchContract})
+            this.setState({ batchContract })
             this.setState({ loading: false })
 
-            const collectionCounter = await this.state.batchContract.methods.collectionCounter().call();
+            const collectionCounter = this.props.location.state.key
+                ? await this.state.batchContract.methods.collectionsNftCount(this.props.location.state.key).call()
+                : await this.state.batchContract.methods.nftCounter().call();
+
             const arr = []
-            if (collectionCounter)
-                for (let i = 1; i <= collectionCounter; i++) {
-                    arr.push(await this.state.batchContract.methods.allCollections(i).call());
+            if (this.props.location.state.key) {
+                for (let i = 0; i < collectionCounter; i++) {
+                    arr.push(await this.state.batchContract.methods.nftsByCollectionId(this.props.location.state.key, i).call());
                 }
-            
-            this.setState({ allCollections: arr});
-        } else {    
+            } else {
+                for (let i = 0; i < collectionCounter; i++) {
+                    arr.push(await this.state.batchContract.methods.allNFTs(i).call());
+                }
+            }
+
+            console.log(arr);
+            this.setState({ allCollections: arr });
+        } else {
             window.alert("TokenFactory contract is not deployed to detected network")
         }
     }
 
     async handleSubmit(event) {
-        event.preventDefault()   
+        event.preventDefault()
         await this.state.tokenFactory.methods.approveDiamondAuthencity(
             this.state.tokenId,
             this.state.authenticate
@@ -73,7 +81,7 @@ class ApproveNFTView extends Component {
             .send({ from: this.state.account })
             .once('receipt', (receipt) => {
                 this.setState({ loading: false })
-            })    
+            })
     }
 
     async handleFileInput(e) {
@@ -81,9 +89,10 @@ class ApproveNFTView extends Component {
     }
 
     render() {
+        console.log(this.props.location.state.key);
         return (
             <div className="container">
-                <center style={{marginTop: '15vh'}}>
+                {/* <center style={{ marginTop: '15vh' }}>
                     {
                         !this.state.allCollections.length
                             ? <p> No collections </p>
@@ -113,12 +122,7 @@ class ApproveNFTView extends Component {
                                                         <td>{item.totalPrize}</td>
                                                         <td>{item.soldCount}</td>
                                                         <td>{item.acceptCollateral ? item.collateralAmount : 0}</td>
-                                                        <td onClick={
-                                                            () => this.props.history.push({
-                                                                pathname: '/View',
-                                                                state: { key: key +1 }
-                                                            })
-                                                        }>View nfts</td>
+                                                        <td>View nfts</td>
                                                     </tr>
                                                 )
                                             })
@@ -127,11 +131,11 @@ class ApproveNFTView extends Component {
                                 </Table>
                             )
                     }
-                </center>
+                </center> */}
             </div>
         );
     }
 }
 
 
-export default withRouter(ApproveNFTView);
+export default ViewNFT;

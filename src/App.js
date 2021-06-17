@@ -10,6 +10,7 @@ import AddBatches from './components/pages/AddCollections';
 import ApproveNFT from './components/pages/ApproveNFT';
 import RedeemNFT from './components/pages/RedeemNFT';
 import Faucet from './components/pages/Faucet';
+import ViewNFT from './components/ViewNFT';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/Approve' component={ApproveNFT} />
           <Route path='/Redeem' component={RedeemNFT} />
           <Route path='/Faucet' component={Faucet} />
+          <Route path='/View' component={ViewNFT} />
       </Switch>
     </Router>     
     </>
