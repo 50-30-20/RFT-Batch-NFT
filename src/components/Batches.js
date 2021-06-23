@@ -1,6 +1,6 @@
+import './Batches.css';
 import Web3 from 'web3';
 import React, { Component } from 'react';
-import './Batches.css';
 import TokenFactory from '../abis/TokenFactory.json'
 import USDTToken from '../abis/USDTToken.json'
 import Batch from '../abis/Batch.json'
@@ -202,7 +202,7 @@ class Liquidity extends Component {
                                 type="text"
                                 className="form-control"
                                 value={this.state.price}
-                                placeholder="Prize"
+                                placeholder="Price"
                                 onChange={event => this.setState({ price: event.target.value })}
                             />
                         </div>

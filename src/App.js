@@ -7,8 +7,8 @@ import Services from './components/pages/Services';
 import Products from './components/pages/Products';
 import NFTCreate from './components/pages/NFTCreate';
 import AddBatches from './components/pages/AddCollections';
-import ApproveNFT from './components/pages/ApproveNFT';
-import RedeemNFT from './components/pages/RedeemNFT';
+import ViewCollectablePage from './components/pages/ViewCollectable';
+import WithdrawNFT from './components/pages/Withdraw';
 import Faucet from './components/pages/Faucet';
 import ViewNFT from './components/ViewNFT';
 
@@ -23,8 +23,8 @@ function App() {
           <Route path ='/Products' component={Products} />
           <Route path='/Create' component={NFTCreate} />
           <Route path='/Liquidity' component={AddBatches} />
-          <Route path='/Approve' component={ApproveNFT} />
-          <Route path='/Redeem' component={RedeemNFT} />
+          <Route path='/Approve' component={ViewCollectablePage} />
+          <Route path='/Redeem' component={WithdrawNFT} />
           <Route path='/Faucet' component={Faucet} />
           <Route path='/View' component={ViewNFT} />
       </Switch>

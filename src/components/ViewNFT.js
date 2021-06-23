@@ -102,7 +102,7 @@ class ViewNFT extends Component {
                                         <tr>
                                             <th>#</th>
                                             <th>Collection ID</th>
-                                            <th>Prize</th>
+                                            <th>Price</th>
                                             <th>Token Addr</th>
                                             <th>Token Id</th>
                                             <th>Collateral Locked</th>

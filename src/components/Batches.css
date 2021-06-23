@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
 body{
     font-family: 'Chakra Petch', sans-serif;
+    /* background-color: blanchedalmond; */
     background-color: #222831;
 }
 
@@ -72,9 +73,9 @@ body{
     background:blue;
 }
 
-.form1 {
+/* .form1 {
     border-color: whitesmoke;
-    border-style: outset;
+    border-style: none;
     width: 500px;
     margin-left: -370px;
     margin-top: -30px;
@@ -82,7 +83,7 @@ body{
     padding-top: 70px;
     border-width: 2px;
     padding-left: 10px;
-}
+} */
 
 .form2 {
     border-color: whitesmoke;
