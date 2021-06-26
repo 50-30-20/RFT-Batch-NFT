@@ -1,4 +1,3 @@
-import './Batches.css';
 import Web3 from 'web3';
 import React, { Component } from 'react';
 import TokenFactory from '../abis/TokenFactory.json'
@@ -6,22 +5,24 @@ import USDTToken from '../abis/USDTToken.json'
 import Batch from '../abis/Batch.json'
 import IERC721 from '../abis/IERC721.json'
 
+import './Batches.css';
+
 class Liquidity extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-           tokenId1: null,
-           tokenId2: null,
-           name: null,
-           size: null,
-           acceptCollateral: null,
-           collaborators: null,
-           nftTokenAddress: null,
-           nftTokenId: null,
-           collectionId: null,
-           price: null,
-           nft: null
+            tokenId1: null,
+            tokenId2: null,
+            name: null,
+            size: null,
+            acceptCollateral: null,
+            collaborators: null,
+            nftTokenAddress: null,
+            nftTokenId: null,
+            collectionId: null,
+            price: null,
+            nft: null
         }
 
         this.handleSubmit1 = this.handleSubmit1.bind(this);
@@ -53,7 +54,7 @@ class Liquidity extends Component {
         const networkData = TokenFactory.networks[networkId]
         const BatchNetworkData = Batch.networks[networkId]
         const usdtData = USDTToken.networks[networkId]
-         
+
         if (networkData) {
             const tokenFactory = new web3.eth.Contract(TokenFactory.abi, networkData.address)
             this.setState({ tokenFactory })
@@ -88,7 +89,7 @@ class Liquidity extends Component {
 
     async handleSubmit2(event) {
         event.preventDefault()
-        
+
         const web3 = window.web3
 
         // const price = await this.state.tokenFactory.methods.nfts(this.state.tokenId2).call()
@@ -106,7 +107,7 @@ class Liquidity extends Component {
         //             this.setState({ loading: false })
         //         })
         // })
-        
+
         const add = async () => {
             await this.state.batchContract.methods.addNFTToCollection(
                 this.state.nftTokenAddress,
@@ -123,19 +124,18 @@ class Liquidity extends Component {
         //await this.state.usdtToken.methods.approve(this.state.tokenFactory.address, amount)
         const nft = new web3.eth.Contract(IERC721.abi, this.state.nftTokenAddress);
         await nft.methods.approve(this.state.batchContract._address, this.state.nftTokenId)
-            .send({from: this.state.account})
+            .send({ from: this.state.account })
             .once('receipt', (receipt) => {
                 console.log('Confirm', receipt);
                 add();
             })
     }
-    
+
     render() {
         return (
             <div className="main">
                 <form className="form1" onSubmit={this.handleSubmit1}>
                     <div className="container1">
-
                         <div className="form-el">
                             <label className='text-header1-l'>Create Collection</label> <br />
                             <input
@@ -174,7 +174,6 @@ class Liquidity extends Component {
 
                 <form className="form2" onSubmit={this.handleSubmit2}>
                     <div className="container2">
-
                         <div className="form-el">
                             <label className='text-header1-l'>Deposit NFT</label> <br />
                             <input

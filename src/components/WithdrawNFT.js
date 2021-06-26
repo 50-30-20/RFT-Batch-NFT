@@ -1,9 +1,10 @@
 import Web3 from 'web3';
 import React, { Component } from 'react';
-import './WithdrawNFT.css';
 import TokenFactory from '../abis/TokenFactory.json'
 import RFTToken from '../abis/RFTToken.json'
 import Batch from '../abis/Batch.json'
+
+import './WithdrawNFT.css';
 
 class Withdraw extends Component {
     constructor(props) {
@@ -48,7 +49,7 @@ class Withdraw extends Component {
             this.setState({ tokenFactory })
 
             const batchContract = new web3.eth.Contract(Batch.abi, Batch.networks[networkId].address)
-            this.setState({ batchContract})
+            this.setState({ batchContract })
             this.setState({ loading: false })
 
             const rftToken = new web3.eth.Contract(RFTToken.abi, rftData.address)
@@ -90,7 +91,7 @@ class Withdraw extends Component {
     render() {
         return (
             <div className="main">
-                <form className="form1" onSubmit={this.handleSubmit1}>
+                <form className="form11" onSubmit={this.handleSubmit1}>
                     <div className="container1">
 
                         <div className="form-el">

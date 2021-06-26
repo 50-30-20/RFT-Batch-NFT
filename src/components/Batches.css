@@ -1,5 +1,6 @@
 /* Styles go here */
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
+
 body{
     font-family: 'Chakra Petch', sans-serif;
     /* background-color: blanchedalmond; */
@@ -73,9 +74,16 @@ body{
     background:blue;
 }
 
-/* .form1 {
+.main {
+    /* border-color: blanchedalmond;
+    border-style: double; */
+    padding-left: 340px;
+    margin-left: 150px;
+}
+
+.form1 {
     border-color: whitesmoke;
-    border-style: none;
+    border-style: outset;
     width: 500px;
     margin-left: -370px;
     margin-top: -30px;
@@ -83,7 +91,7 @@ body{
     padding-top: 70px;
     border-width: 2px;
     padding-left: 10px;
-} */
+}
 
 .form2 {
     border-color: whitesmoke;
