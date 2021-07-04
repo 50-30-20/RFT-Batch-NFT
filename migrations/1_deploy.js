@@ -10,6 +10,7 @@ module.exports = async function (deployer, network, accounts) {
 
     await deployer.deploy(RFTToken);
     let rftToken = await RFTToken.deployed();
+    
     //console.log('rftToken', rftToken);
 
     await deployer.deploy(USDTToken);
@@ -21,5 +22,6 @@ module.exports = async function (deployer, network, accounts) {
 
     await deployer.deploy(Batch, rftToken.address, usdtToken.address)
     let batchContract = await Batch.deployed()
-    //await rftToken.transfer(tokenFactory.address, new BigNumber(100000e18));
+    
+    await rftToken.setOwner(batchContract.address);
 }

@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 
 import {IERC20} from "../interfaces/IERC20.sol";
 import {SafeMath} from "../utils/SafeMath.sol";
-import {Context} from "../utils/Context.sol";
+import {Contexts} from "../utils/Context.sol";
 
 /**
  * NOTE: Due to compiling issues, _name, _symbol, and _decimals were removed
@@ -31,7 +31,7 @@ import {Context} from "../utils/Context.sol";
  * functions have been added to mitigate the well-known issues around setting
  * allowances. See {IERC20-approve}.
  */
-contract Token is IERC20, Context {
+contract Token is IERC20, Contexts {
     using SafeMath for uint256;
 
     string public symbol;

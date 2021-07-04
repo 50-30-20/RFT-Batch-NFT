@@ -64,27 +64,19 @@ class Withdraw extends Component {
     async handleSubmit1(event) {
         event.preventDefault()
 
-        // await this.state.rftToken.methods.approve(this.state.tokenFactory.address, window.web3.utils.toWei(this.state.amount.toString(), 'Ether') || 0)
-        //     .send({ from: this.state.account })
-        //     .on('transactionHash', async (hash) => {
-        //         await this.state.tokenFactory.methods.reedemDiamond(
-        //             this.state.tokenId1,
-        //             window.web3.utils.toWei(this.state.amount.toString(), 'Ether') || 0
-        //         )
-        //             .send({ from: this.state.account })
-        //             .once('receipt', (receipt) => {
-        //                 this.setState({ loading: false })
-        //             })
-        //     })
-
-        await this.state.batchContract.methods.removeNFTFromCollection(
-            this.state.tokenAddress,
-            this.state.tokenId,
-            this.state.collectionID
-        )
+    
+        await this.state.rftToken.methods.approve(this.state.batchContract._address, 10 )
             .send({ from: this.state.account })
-            .once('receipt', (receipt) => {
-                this.setState({ loading: false })
+            .on('transactionHash', async (hash) => {
+                await this.state.batchContract.methods.removeNFTFromCollection(
+                    this.state.tokenAddress,
+                    this.state.tokenId,
+                    this.state.collectionID
+                )
+                    .send({ from: this.state.account })
+                    .once('receipt', (receipt) => {
+                        this.setState({ loading: false })
+                    })
             })
     }
 

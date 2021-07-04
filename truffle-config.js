@@ -14,7 +14,7 @@ module.exports = {
       provider: function () {
         return new HDWalletProvider(
           process.env.METAMASK_WALLET_SECRET,
-          'https://rinkeby.infura.io/v3/e95c6744ded94bbe81e881b8ca002ce7'
+          'https://rinkeby.infura.io/v3/69faa0ff70d74c9894ec5cf1a4062ff6'
         )
       },
       networkCheckTimeout: 100000,

@@ -95,40 +95,32 @@ class Liquidity extends Component {
         // const price = await this.state.tokenFactory.methods.nfts(this.state.tokenId2).call()
         // let amount = price.price.toString();
         // console.log('price', amount);
+        
+        await this.state.usdtToken.methods.approve(this.state.batchContract._address, this.state.price)
+        .send({ from: this.state.account })
+        .on('transactionHash', async (hash) => {
+            const add = async () => {
+                await this.state.batchContract.methods.addNFTToCollection(
+                    this.state.nftTokenAddress,
+                    this.state.nftTokenId,
+                    this.state.collectionId,
+                    this.state.price
+                )
+                    .send({ from: this.state.account })
+                    .once('receipt', (receipt) => {
+                        this.setState({ loading: false })
+                    });
+            }
 
-        // await this.state.usdtToken.methods.approve(this.state.tokenFactory.address, amount)
-        // .send({ from: this.state.account })
-        // .on('transactionHash', async (hash) => {
-        //     await this.state.tokenFactory.methods.addDiamondLiquidity(
-        //         this.state.tokenId2
-        //     )
-        //         .send({ from: this.state.account })
-        //         .once('receipt', (receipt) => {
-        //             this.setState({ loading: false })
-        //         })
-        // })
-
-        const add = async () => {
-            await this.state.batchContract.methods.addNFTToCollection(
-                this.state.nftTokenAddress,
-                this.state.nftTokenId,
-                this.state.collectionId,
-                this.state.price
-            )
+            //await this.state.usdtToken.methods.approve(this.state.tokenFactory.address, amount)
+            const nft = new web3.eth.Contract(IERC721.abi, this.state.nftTokenAddress);
+            await nft.methods.approve(this.state.batchContract._address, this.state.nftTokenId)
                 .send({ from: this.state.account })
                 .once('receipt', (receipt) => {
-                    this.setState({ loading: false })
-                });
-        }
-
-        //await this.state.usdtToken.methods.approve(this.state.tokenFactory.address, amount)
-        const nft = new web3.eth.Contract(IERC721.abi, this.state.nftTokenAddress);
-        await nft.methods.approve(this.state.batchContract._address, this.state.nftTokenId)
-            .send({ from: this.state.account })
-            .once('receipt', (receipt) => {
-                console.log('Confirm', receipt);
-                add();
-            })
+                    console.log('Confirm', receipt);
+                    add();
+                })
+        })
     }
 
     render() {

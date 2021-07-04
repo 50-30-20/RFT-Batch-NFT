@@ -41,7 +41,7 @@ contract TokenFactory is  ERC721URIStorage, IERC721Receiver, AccessControl {
         _;
     }
 
-    constructor(IERC20 _tokenAddress, IERC20 _usdt)  ERC721("Diamond", "DMG") {
+    constructor(IERC20 _tokenAddress, IERC20 _usdt)  ERC721("Diamond", "NFT") {
         tokenCounter = 0;
         rftToken = _tokenAddress;
         collateralToken = _usdt;
