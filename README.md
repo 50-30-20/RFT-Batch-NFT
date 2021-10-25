@@ -47,3 +47,5 @@ Alice is a central figure in the diamond industry. She calculates that the avera
 8. Lapidarist repays the DMG token this triggers the repay function on the contract. 
 9. Once DMG tokens are repaided the Validator safetransfers the NFT back.
 ```
+
+  <h3> Contact </h3>
